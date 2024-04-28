@@ -13,13 +13,13 @@ function App() {
     <Router>
       <nav className={styles.appNav}>
         <NavLink
-          to="/"
+          to="/todolist-typescript/"
           className={({ isActive }) => (isActive ? styles.active : undefined)}
         >
           Всі
         </NavLink>
         <NavLink
-          to="/deleted"
+          to="/todolist-typescript/deleted"
           className={({ isActive }) => (isActive ? styles.active : undefined)}
         >
           Видалені
@@ -27,8 +27,11 @@ function App() {
       </nav>
       <div className={styles.content}>
         <Routes>
-          <Route path="/" element={<TodosPage />} />
-          <Route path="/deleted" element={<DeletedTodosPage />} />
+          <Route path="/todolist-typescript/" element={<TodosPage />} />
+          <Route
+            path="/todolist-typescript/deleted"
+            element={<DeletedTodosPage />}
+          />
         </Routes>
       </div>
     </Router>
