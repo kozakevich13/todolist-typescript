@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../features/todoSlice";
+import styles from "./AddTodoForm.module.scss";
 
 const AddTodoForm: React.FC = () => {
   const [text, setText] = useState("");
@@ -15,14 +16,17 @@ const AddTodoForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.formContainer}>
       <input
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Додати нове завдання..."
+        className={styles.inputField}
       />
-      <button type="submit">Додати</button>
+      <button type="submit" className={styles.addButton}>
+        Додати
+      </button>
     </form>
   );
 };

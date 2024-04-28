@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import AddTodoForm from "./AddTodoForm";
 import { deleteTodo } from "../features/todoSlice";
+import styles from "./TodosPage.module.scss";
 
 const TodosPage: React.FC = () => {
   const todos = useSelector((state: any) =>
@@ -13,14 +14,19 @@ const TodosPage: React.FC = () => {
   const handleDelete = (id: number) => {
     dispatch(deleteTodo(id));
   };
+
   return (
-    <div>
+    <div className={styles.todosContainer}>
       <AddTodoForm />
       {todos.map((todo: any) => (
-        <div key={todo.id}>
+        <div key={todo.id} className={styles.todoItem}>
           {todo.text}
-          <button onClick={() => handleDelete(todo.id)}>Видалити</button> //
-          Кнопка для видалення
+          <button
+            onClick={() => handleDelete(todo.id)}
+            className={styles.deleteButton}
+          >
+            Видалити
+          </button>
         </div>
       ))}
     </div>
